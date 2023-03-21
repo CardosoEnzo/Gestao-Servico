@@ -1,7 +1,25 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The MIT License
+ *
+ * Copyright 2023 Enzo Valentino Santos Cardoso.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package br.com.gestaoservicos.tela;
 
@@ -11,7 +29,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ADM
+ * @author Enzo Valentino Santos Cardoso
  */
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -37,7 +55,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menu = new javax.swing.JMenuBar();
         mainCad = new javax.swing.JMenu();
         mainCadCli = new javax.swing.JMenuItem();
-        mainCadOs = new javax.swing.JMenuItem();
+        os = new javax.swing.JMenuItem();
         mainCadUser = new javax.swing.JMenuItem();
         mainRelSer = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -76,7 +94,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         mainCad.setText("Cadastro");
 
-        mainCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        mainCadCli.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         mainCadCli.setText("Cliente");
         mainCadCli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,16 +103,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         mainCad.add(mainCadCli);
 
-        mainCadOs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        mainCadOs.setText("OS");
-        mainCadOs.addActionListener(new java.awt.event.ActionListener() {
+        os.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_MASK));
+        os.setText("OS");
+        os.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainCadOsActionPerformed(evt);
+                osActionPerformed(evt);
             }
         });
-        mainCad.add(mainCadOs);
+        mainCad.add(os);
 
-        mainCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        mainCadUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_MASK));
         mainCadUser.setText("Usuários");
         mainCadUser.setEnabled(false);
         mainCadUser.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +127,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         mainRelSer.setText("Relatório");
         mainRelSer.setEnabled(false);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem4.setText("Serviços");
         mainRelSer.add(jMenuItem4);
 
@@ -117,7 +135,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         mainAju.setText("Ajuda");
 
-        mainAjuSobre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        mainAjuSobre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.ALT_MASK));
         mainAjuSobre.setText("Sobre");
         mainAjuSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +153,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        mainOpcSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        mainOpcSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_MASK));
         mainOpcSair.setText("Sair");
         mainOpcSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,40 +195,76 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mainCadOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainCadOsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mainCadOsActionPerformed
+    /**
+     * Ao clicar no botão "OS", localizado na opção "cadastro". Ele cria um
+     * objeto da classe TelaOs. OS = Ordem de Serviço.
+     *
+     * @param evt
+     */
+    private void osActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_osActionPerformed
+        TelaOs os = new TelaOs();
+        os.setVisible(true);
+        desktop.add(os);
 
+    }//GEN-LAST:event_osActionPerformed
+    /**
+     * Ao clicar no botão Usuário, botão disponível somente para administradores
+     * do sistema, localizado na opção "cadastro". Ele cria um objeto da classe
+     * TelaUsuario.
+     *
+     * @param evt
+     */
     private void mainCadUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainCadUserActionPerformed
-           TelaUsuario usuario = new TelaUsuario();
-           usuario.setVisible(true);
-           desktop.add(usuario);
+        TelaUsuario usuario = new TelaUsuario();
+        usuario.setVisible(true);
+        desktop.add(usuario);
     }//GEN-LAST:event_mainCadUserActionPerformed
 
+    /**
+     * Método onde importamos para a tela inicial a data atual do windows.
+     *
+     * @param evt
+     */
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-       Date data = new Date();
-       DateFormat formatador = DateFormat.getDateInstance(DateFormat.SHORT);
-       lblData.setText(formatador.format(data));
+        Date data = new Date();
+        DateFormat formatador = DateFormat.getDateInstance(DateFormat.SHORT);
+        lblData.setText(formatador.format(data));
     }//GEN-LAST:event_formWindowActivated
 
     private void mainOpcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainOpcActionPerformed
-  
-    }//GEN-LAST:event_mainOpcActionPerformed
 
+    }//GEN-LAST:event_mainOpcActionPerformed
+    /**
+     * Método para a confirmação de saída do Sistema.
+     *
+     * @param evt
+     */
     private void mainOpcSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainOpcSairActionPerformed
-       int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?","Atenção", JOptionPane.YES_NO_OPTION);
-       if(sair == JOptionPane.YES_OPTION){
-           System.exit(0);
-       }
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_mainOpcSairActionPerformed
 
+    /**
+     * Métofo onde exibe um painel de ajuda no Sistema. Ele cria um objeto da
+     * classe TelaSobre.
+     *
+     * @param evt
+     */
     private void mainAjuSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainAjuSobreActionPerformed
         TelaSobre sobre = new TelaSobre();
         sobre.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_mainAjuSobreActionPerformed
 
+    /**
+     * Método onde é criado um objeto da classe TelaCliente, ao clicar na opção
+     * "Cliente", localizado no menu "cadastro".
+     *
+     * @param evt
+     */
     private void mainCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainCadCliActionPerformed
         TelaCliente cliente = new TelaCliente();
         cliente.setVisible(true);
@@ -261,11 +315,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mainAjuSobre;
     public static javax.swing.JMenu mainCad;
     private javax.swing.JMenuItem mainCadCli;
-    private javax.swing.JMenuItem mainCadOs;
     public static javax.swing.JMenuItem mainCadUser;
     private javax.swing.JMenu mainOpc;
     private javax.swing.JMenuItem mainOpcSair;
     public static javax.swing.JMenu mainRelSer;
     private javax.swing.JMenuBar menu;
+    private javax.swing.JMenuItem os;
     // End of variables declaration//GEN-END:variables
 }

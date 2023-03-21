@@ -1,19 +1,41 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The MIT License
+ *
+ * Copyright 2023 Enzo Valentino Santos Cardoso.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 package br.com.gestaoservicos.tela;
 
 /**
  *
- * @author ADM
+ * @author Enzo Valentino Santos Cardoso
  */
 import java.sql.*;
 import br.com.gestaoservicos.dal.ModuloConexao;
 import javax.swing.JOptionPane;
 
 public class TelaUsuario extends javax.swing.JInternalFrame {
+    
+    /**
+     * Variáveis criadas para auxiliar a comunicação com o banco de dados
+     */
     
     Connection conexao = null;
     PreparedStatement pst = null;
@@ -22,6 +44,9 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
      * Creates new form TelaUsuario
      */
     public TelaUsuario() {
+        /**
+         * Neste construtor eu invoco o método para a conexão com o banco.
+         */
         initComponents();
         conexao = ModuloConexao.conector();
     }
@@ -134,8 +159,8 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         }
     }
     private void deletar(){
-        JOptionPane.showConfirmDialog(null, "Deseja realmente deletar?", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
-            if(JOptionPane.YES_NO_OPTION == JOptionPane.YES_OPTION){         
+        int confirma = JOptionPane.showConfirmDialog(null, "Deseja realmente deletar?", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
+            if(confirma == JOptionPane.YES_OPTION){         
             try{ 
             String sql = "delete from usuario where id_user=?";
             pst = conexao.prepareStatement(sql);
